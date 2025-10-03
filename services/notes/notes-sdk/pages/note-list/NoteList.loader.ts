@@ -1,9 +1,10 @@
 import type { LoaderQuery } from "@saflib/vue";
 import { ref } from "vue";
 import type { AnyDocumentId, DocHandle } from "@automerge/automerge-repo";
+import type { Note } from "../../types.ts";
 
 export function useNoteListLoader() {
-  const docQuery: LoaderQuery = {
+  const docQuery: LoaderQuery<Note> = {
     isLoading: ref(true),
     error: ref(null),
     isError: ref(false),
@@ -25,11 +26,8 @@ export function useNoteListLoader() {
       });
       localStorage.setItem("first-note", handle.url);
     }
-    console.log("handle", handle.doc());
-    console.log("handle2", handle.doc());
 
-    docQuery.data!.value = handle.doc();
-    console.log("docQuery.data in loader", docQuery.data.value);
+    docQuery.data!.value = handle.doc() as Note;
     docQuery.isLoading.value = false;
   };
   load();

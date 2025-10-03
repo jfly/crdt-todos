@@ -4,9 +4,9 @@
     <p>{{ t(strings.description) }}</p>
       </v-container>
     <div class="ma-4">
-      {{ note.contents }}
+      {{ docQuery.data.value?.contents }}
     </div>
-    <NoteEditor v-model="note" />
+    <NoteEditor v-if="docQuery.data.value" v-model="docQuery.data.value" />
 </template>
 
 <script setup lang="ts">
@@ -14,18 +14,7 @@ import { note_list_page as strings } from "./NoteList.strings";
 import { useReverseT } from "../../i18n.ts";
 import { useNoteListLoader } from "./NoteList.loader.ts";
 import NoteEditor from "../../components/note-editor/NoteEditor.vue";
-import { ref, watch } from "vue";
-import type { Note } from "../../types.ts";
-// const { docQuery } = useNoteListLoader();
-const note = ref<Note>({
-  id: "1",
-  title: "First Note",
-  contents: "Hello, world!",
-  createdAt: new Date(),
-  updatedAt: new Date(),
-});
-// console.log("doc query immediately after loader called", docQuery.data?.value);
-
+const { docQuery } = useNoteListLoader();
 
 const { t } = useReverseT();
 </script>

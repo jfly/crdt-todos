@@ -4,17 +4,17 @@
       <h2>{{ note?.title || t(strings.title) }}</h2>
     </v-card-title>
 
-    {{   }}
-
     <v-card-subtitle v-if="note?.createdAt">
       Created: {{ note.createdAt }}
+      <br />
+      Updated: {{ note.updatedAt }}
     </v-card-subtitle>
 
     <v-card-text>
       <v-form>
         <v-textarea
           :model-value="note.contents"
-          @update:model-value="(value) => note.contents = value"
+          @update:model-value="handleEdit"
           :label="t(strings.contents_label)"
           rows="10"
           variant="outlined"
@@ -34,4 +34,9 @@ const { t } = useReverseT();
 
 // Define the model for two-way binding
 const note = defineModel<Note>({ required: true });
+
+const handleEdit = (value: string) => {
+  note.value.contents = value;
+  note.value.updatedAt = new Date();
+};
 </script>
