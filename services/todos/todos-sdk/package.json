@@ -21,12 +21,16 @@
     "@testing-library/vue": "^8.1.0"
   },
   "dependencies": {
+    "@automerge/automerge": "^3.1.2",
+    "@automerge/automerge-repo": "^2.3.1",
+    "@automerge/automerge-repo-storage-indexeddb": "^2.3.1",
     "@saflib/monorepo": "*",
     "@saflib/sdk": "*",
     "@saflib/vite": "*",
     "@saflib/vue": "*",
     "msw": "^2.11.3",
     "todos-spec": "*",
+    "vite-plugin-wasm": "^3.5.0",
     "vue-router": "^4.5.1"
   },
   "msw": {
