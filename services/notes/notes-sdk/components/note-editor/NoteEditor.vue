@@ -32,7 +32,6 @@ import type { Note } from "../../types.ts";
 
 const { t } = useReverseT();
 
-// Define the model for two-way binding
 const note = defineModel<Note>({ required: true });
 
 const handleEdit = (value: string) => {
