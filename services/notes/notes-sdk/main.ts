@@ -2,9 +2,9 @@ import App from "./App.vue";
 import { createVueApp, setClientName } from "@saflib/vue";
 import "@saflib/vue/components";
 import { notesSdkStrings } from "./strings";
-import { setupWorker } from "msw/browser";
-import { notesServiceFakeHandlers } from "./fakes.ts";
-import { http, bypass } from "msw";
+// import { setupWorker } from "msw/browser";
+// import { notesServiceFakeHandlers } from "./fakes.ts";
+// import { http, bypass } from "msw";
 import { router } from "./router.ts";
 
 import { Repo } from "@automerge/automerge-repo";
