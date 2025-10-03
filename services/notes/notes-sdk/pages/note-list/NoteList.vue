@@ -3,32 +3,29 @@
     <h1>{{ t(strings.title) }}</h1>
     <p>{{ t(strings.description) }}</p>
       </v-container>
+    <div class="ma-4">
+      {{ note.contents }}
+    </div>
+    <NoteEditor v-model="note" />
 </template>
 
 <script setup lang="ts">
 import { note_list_page as strings } from "./NoteList.strings";
 import { useReverseT } from "../../i18n.ts";
-import type { AnyDocumentId, DocHandle } from "@automerge/automerge-repo";
+import { useNoteListLoader } from "./NoteList.loader.ts";
+import NoteEditor from "../../components/note-editor/NoteEditor.vue";
+import { ref, watch } from "vue";
+import type { Note } from "../../types.ts";
+// const { docQuery } = useNoteListLoader();
+const note = ref<Note>({
+  id: "1",
+  title: "First Note",
+  contents: "Hello, world!",
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
+// console.log("doc query immediately after loader called", docQuery.data?.value);
 
-const load = async () => {
-  let handle: DocHandle<any>;
-  const firstNote = localStorage.getItem("first-note");
-  if (firstNote) {
-    console.log("loading note", firstNote)
-    handle = await window.repo.find(firstNote as unknown as AnyDocumentId);
-  }
-  else {
-    console.log("creating note", "first-note")
-    handle = window.repo.create({
-      id: "first-note",
-      contents: "Hello, world!",
-    });
-    localStorage.setItem("first-note", handle.url);
-  }
-
-  console.log("handle", handle.url)
-}
-load();
 
 const { t } = useReverseT();
 </script>
