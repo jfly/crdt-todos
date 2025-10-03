@@ -12,6 +12,7 @@ saf-workflow-status.json
 *.njsproj
 *.sln
 *.sw?
+/.direnv
 
 # Logs
 *.log

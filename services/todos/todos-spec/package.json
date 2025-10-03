@@ -1,0 +1,14 @@
+{
+  "name": "todos-spec",
+  "description": "API specs for the todos service",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@saflib/openapi": "*"
+  }
+}
