@@ -4,11 +4,12 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 import { StubComponent } from "@saflib/vue/components";
+import NoteListAsync from "./pages/note-list/NoteListAsync.vue";
 
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: StubComponent,
+    component: NoteListAsync,
   },
 ];
 

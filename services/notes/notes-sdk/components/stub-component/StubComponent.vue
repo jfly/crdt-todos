@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { stub_component_strings as strings } from "./StubComponent.strings.ts";
-import { useReverseT } from "../../../../todos/todos-sdk/i18n.ts";
+import { useReverseT } from "../../i18n.ts";
 import { TanstackError, getTanstackErrorMessage } from "@saflib/sdk";
 
 const { t } = useReverseT();

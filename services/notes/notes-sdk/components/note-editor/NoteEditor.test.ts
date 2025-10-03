@@ -3,7 +3,7 @@ import { stubGlobals, getElementByString } from "@saflib/vue/testing";
 import { type VueWrapper } from "@vue/test-utils";
 import NoteEditor from "./NoteEditor.vue";
 import { note_editor_strings as strings } from "./NoteEditor.strings.ts";
-import { mountTestApp } from "../../../../todos/todos-sdk/test-app.ts";
+import { mountTestApp } from "../../test-app.ts";
 
 describe("NoteEditor", () => {
   stubGlobals();

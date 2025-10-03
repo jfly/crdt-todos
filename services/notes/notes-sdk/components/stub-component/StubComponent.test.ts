@@ -3,7 +3,7 @@ import { stubGlobals, getElementByString } from "@saflib/vue/testing";
 import { type VueWrapper } from "@vue/test-utils";
 import StubComponent from "./StubComponent.vue";
 import { stub_component_strings as strings } from "./StubComponent.strings.ts";
-import { mountTestApp } from "../../../../todos/todos-sdk/test-app.ts";
+import { mountTestApp } from "../../test-app.ts";
 
 describe("StubComponent", () => {
   stubGlobals();

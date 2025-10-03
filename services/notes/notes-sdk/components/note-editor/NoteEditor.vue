@@ -1,11 +1,11 @@
 <template>
   <v-card>
     <v-card-title>
-      <h2>{{ t(strings.title) }}</h2>
+      <h2>{{ model?.title || t(strings.title) }}</h2>
     </v-card-title>
 
-    <v-card-subtitle>
-      {{ t(strings.description) }}
+    <v-card-subtitle v-if="model?.createdAt">
+      Created: {{ model.createdAt.toLocaleDateString() }}
     </v-card-subtitle>
 
     <v-card-text>
@@ -51,8 +51,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { note_editor_strings as strings } from "./NoteEditor.strings.ts";
-import { useReverseT } from "../../../../todos/todos-sdk/i18n.ts";
-import type { Note } from "todos-spec";
+import { useReverseT } from "../../i18n.ts";
+import type { Note } from "../../types.ts";
 
 const { t } = useReverseT();
 
@@ -79,9 +79,7 @@ const emit = defineEmits<{
 }>();
 
 // Define the model for two-way binding
-const model = defineModel<{
-  contents: string;
-}>({
+const model = defineModel<Note>({
   required: true,
 });
 

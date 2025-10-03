@@ -1,0 +1,12 @@
+{
+  "name": "@your-org/web-notes-links",
+  "description": "Links for the notes client",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "dependencies": {
+    "@saflib/links": "*"
+  }
+}
