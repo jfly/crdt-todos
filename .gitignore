@@ -1,6 +1,7 @@
 node_modules
 coverage
 saf-workflow-status.json
+Dockerfile
 
 # Editor directories and files
 .vscode/*
