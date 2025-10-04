@@ -4,6 +4,10 @@ import common.Caddyfile
 	import spa /index.html
 }
 
+{$PROTOCOL}://app.{$DOMAIN} {
+	import spa /app/index.html
+}
+
 {$PROTOCOL}://auth.{$DOMAIN} {
 	import spa /auth/index.html
 }
