@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 REMOTE_HOST="TODO" # e.g. root@<server-domain>
 REMOTE_PATH="TODO" # where to put the zip file, e.g. `/root/`
