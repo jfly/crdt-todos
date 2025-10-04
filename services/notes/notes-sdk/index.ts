@@ -7,3 +7,6 @@
 // export * from "./requests/users.ts";
 // export * from "./components/UserCard.vue";
 // export * from "./composables/useUser.ts";
+
+export * from "./router";
+export * from "./repo";

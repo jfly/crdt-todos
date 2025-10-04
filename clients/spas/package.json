@@ -12,6 +12,8 @@
     "@saflib/monorepo": "*",
     "@saflib/vite": "*",
     "@vue/tsconfig": "^0.8.1",
+    "vite-plugin-wasm": "^3.5.0",
+    "web-app-spa": "*",
     "web-auth": "*",
     "web-root": "*"
   },

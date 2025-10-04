@@ -4,6 +4,10 @@ import common.Caddyfile
 	reverse_proxy clients:5173
 }
 
+{$PROTOCOL}://app.{$DOMAIN} {
+	reverse_proxy clients:5173
+}
+
 {$PROTOCOL}://auth.{$DOMAIN} {
 	reverse_proxy clients:5173
 }
