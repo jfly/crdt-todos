@@ -12,6 +12,10 @@ import common.Caddyfile
 	import spa /auth/index.html
 }
 
+{$PROTOCOL}://notes.{$DOMAIN} {
+	import api-proxy notes:3000
+}
+
 {$PROTOCOL}://health.{$DOMAIN} {
 	import admin-file-server /health-assets
 }

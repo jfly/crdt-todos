@@ -53,6 +53,28 @@ services:
       - /opt/saf-2025/saflib/auth-db/data:/app/saflib/identity/identity-db/data
       - /opt/saf-2025/saflib/auth-service/data:/app/saflib/identity/identity-service/data
 
+  notes:
+    image: ghcr.io/your-org/your-org-notes:latest
+    # if we ever use notes-db, will need to add a volume here
+    build:
+      context: ../..
+      dockerfile: services/notes/notes-service/Dockerfile
+    environment:
+      - ALLOW_DB_CREATION=${ALLOW_DB_CREATION}
+      - CLIENT_SUBDOMAINS=${CLIENT_SUBDOMAINS}
+      - DEPLOYMENT_NAME=${DEPLOYMENT_NAME}
+      - DOMAIN=${DOMAIN}
+      - MOCK_INTEGRATIONS=${MOCK_INTEGRATIONS}
+      - NODE_ENV=${NODE_ENV}
+      - PROTOCOL=${PROTOCOL}
+      - SERVICE_SUBDOMAINS=${SERVICE_SUBDOMAINS}
+      - TZ=${TZ}
+
+      - IDENTITY_SERVICE_GRPC_PORT=${IDENTITY_SERVICE_GRPC_PORT}
+
+      - NOTES_SERVICE_HOST=${NOTES_SERVICE_HOST}
+      - NOTES_SERVICE_HTTP_PORT=${NOTES_SERVICE_HTTP_PORT}
+
   prometheus:
     image: prom/prometheus:v2.46.0
     volumes:
