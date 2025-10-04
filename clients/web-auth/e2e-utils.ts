@@ -1,7 +1,7 @@
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 import { getUniqueEmail, getByString } from "@saflib/playwright";
-import { authAppStrings } from "@your-org/web-auth/strings";
+import { authAppStrings } from "web-auth/strings";
 
 export async function registerUser(
   page: Page,

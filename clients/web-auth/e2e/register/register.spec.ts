@@ -8,7 +8,7 @@ import {
 } from "@saflib/playwright";
 import { linkToHref } from "@saflib/links";
 import { authLinks } from "@saflib/auth-links";
-import { authAppStrings } from "@your-org/web-auth/strings";
+import { authAppStrings } from "web-auth/strings";
 
 test("register", async ({ page }) => {
   await cleanScreenshots();

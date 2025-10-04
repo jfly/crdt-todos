@@ -1,6 +1,6 @@
 import { expect, it, describe } from "vitest";
-import { main } from "@your-org/web-auth";
-import { authAppStrings } from "@your-org/web-auth/strings";
+import { main } from "web-auth";
+import { authAppStrings } from "web-auth/strings";
 
 describe("web-auth package exports", () => {
   it("should export the main function", () => {

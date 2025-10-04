@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/web-notes-links",
+  "name": "web-notes-links",
   "description": "Links for the notes client",
   "private": true,
   "type": "module",

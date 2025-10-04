@@ -3,7 +3,7 @@ import type { ComponentMountingOptions } from "@vue/test-utils";
 import type { Component } from "vue";
 import { createRootRouter } from "./router.ts";
 import { webRootStrings } from "./strings.ts";
-import { webCommonStrings } from "@your-org/web-common/strings";
+import { webCommonStrings } from "web-common/strings";
 
 export const mountTestApp = <C extends Component>(
   Component: C,

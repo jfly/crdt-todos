@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { rootLinks } from "@your-org/web-root-links";
+import { rootLinks } from "web-root-links";
 import StubPage from "./StubPage.vue";
 
 export const createRootRouter = () =>

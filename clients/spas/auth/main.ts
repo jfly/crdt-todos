@@ -1,3 +1,3 @@
-import { main } from "@your-org/web-auth";
+import { main } from "web-auth";
 
 main();

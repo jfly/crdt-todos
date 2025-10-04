@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/web-root",
+  "name": "web-root",
   "description": "Root page for the web application",
   "private": true,
   "type": "module",
@@ -16,8 +16,8 @@
   },
   "dependencies": {
     "@saflib/vue": "*",
-    "@your-org/web-root-links": "*",
+    "web-root-links": "*",
     "vue-router": "^4.5.1",
-    "@your-org/web-common": "*"
+    "web-common": "*"
   }
 }
