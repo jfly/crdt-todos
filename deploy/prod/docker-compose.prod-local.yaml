@@ -13,6 +13,12 @@ services:
     environment:
       - BLOCK_ADMIN_PAGES=false
 
+  notes:
+    extends:
+      file: remote-assets/docker-compose.prod.yaml
+      service: notes
+    volumes: !override []
+
   loki:
     extends:
       file: remote-assets/docker-compose.prod.yaml

@@ -1,0 +1,19 @@
+{
+  "name": "web-app-spa",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./main.ts",
+    "./strings": "./strings.ts"
+  },
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "@saflib/vue": "*",
+    "notes-sdk": "*"
+  }
+}

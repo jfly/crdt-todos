@@ -1,6 +1,6 @@
 import { expect, it, describe } from "vitest";
-import { vuetifyConfig } from "@your-org/web-common";
-import { webCommonStrings } from "@your-org/web-common/strings";
+import { vuetifyConfig } from "web-common";
+import { webCommonStrings } from "web-common/strings";
 
 describe("web-auth package exports", () => {
   it("should export every SPA's vuetify config", () => {

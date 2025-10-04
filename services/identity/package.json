@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/identity",
+  "name": "identity",
   "type": "module",
   "scripts": {
     "start": "node --experimental-strip-types ./bin/run.ts"

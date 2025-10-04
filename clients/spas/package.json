@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/clients",
+  "name": "clients",
   "description": "Vite setup to build all SPA clients",
   "type": "module",
   "scripts": {
@@ -12,8 +12,10 @@
     "@saflib/monorepo": "*",
     "@saflib/vite": "*",
     "@vue/tsconfig": "^0.8.1",
-    "@your-org/web-auth": "*",
-    "@your-org/web-root": "*"
+    "vite-plugin-wasm": "^3.5.0",
+    "web-app-spa": "*",
+    "web-auth": "*",
+    "web-root": "*"
   },
   "workspaces": [
     "clients/*"

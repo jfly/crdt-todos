@@ -7,19 +7,6 @@ import { notesSdkStrings } from "./strings";
 // import { http, bypass } from "msw";
 import { router } from "./router.ts";
 
-import { Repo } from "@automerge/automerge-repo";
-import { IndexedDBStorageAdapter } from "@automerge/automerge-repo-storage-indexeddb";
-
-const repo = new Repo({
-  storage: new IndexedDBStorageAdapter(),
-});
-declare global {
-  interface Window {
-    repo: Repo;
-  }
-}
-window.repo = repo;
-
 export const main = async () => {
   setClientName("root");
   // const server = setupWorker(

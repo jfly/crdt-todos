@@ -29,7 +29,7 @@
     "@saflib/sdk": "*",
     "@saflib/vite": "*",
     "@saflib/vue": "*",
-    "@your-org/web-notes-links": "*",
+    "web-notes-links": "*",
     "msw": "^2.11.3",
     "notes-spec": "*",
     "vite-plugin-wasm": "^3.5.0"
