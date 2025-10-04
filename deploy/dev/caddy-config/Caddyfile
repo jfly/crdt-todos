@@ -12,6 +12,10 @@ import common.Caddyfile
 	reverse_proxy clients:5173
 }
 
+{$PROTOCOL}://notes.{$DOMAIN} {
+	reverse_proxy notes:3000
+}
+
 {$PROTOCOL}://grafana.{$DOMAIN} {
 	import admin-proxy grafana:3000
 }
