@@ -2,7 +2,7 @@ services:
   caddy:
     cap_add:
       - NET_ADMIN
-    image: ghcr.io/sderickson/crdt-notes-caddy:latest
+    image: crdt-notes-caddy:latest
     ports:
       - "80:80"
       - "443:443"
@@ -20,7 +20,7 @@ services:
     restart: unless-stopped
 
   identity:
-    image: ghcr.io/sderickson/crdt-notes-identity:latest
+    image: crdt-notes-identity:latest
     environment:
       - ALLOW_DB_CREATION=true
       - CLIENT_SUBDOMAINS=${CLIENT_SUBDOMAINS}
@@ -54,7 +54,7 @@ services:
       - /opt/saf-2025/saflib/auth-service/data:/app/saflib/identity/identity-service/data
 
   notes:
-    image: ghcr.io/sderickson/crdt-notes-notes:latest
+    image: crdt-notes-notes:latest
     # if we ever use notes-db, will need to add a volume here
     build:
       context: ../..
