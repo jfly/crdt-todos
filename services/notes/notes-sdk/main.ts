@@ -1,7 +1,7 @@
 import App from "./App.vue";
 import { createVueApp, setClientName } from "@saflib/vue";
 import "@saflib/vue/components";
-import { notesSdkStrings } from "./strings";
+import { notes_sdk_strings } from "./strings";
 // import { setupWorker } from "msw/browser";
 // import { notesServiceFakeHandlers } from "./fakes.ts";
 // import { http, bypass } from "msw";
@@ -22,7 +22,7 @@ export const main = async () => {
   // await server.start({ onUnhandledRequest: "error" });
   createVueApp(App, {
     i18nMessages: {
-      ...notesSdkStrings,
+      ...notes_sdk_strings,
     },
     router,
   });
