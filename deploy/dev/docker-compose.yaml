@@ -18,7 +18,7 @@ services:
 
   clients:
     # Named for local dev, but doesn't get published; not needed for prod
-    image: your-org-clients:latest
+    image: crdt-notes-clients:latest
     build:
       context: ../..
       dockerfile: ./clients/spas/Dockerfile
