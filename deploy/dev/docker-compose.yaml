@@ -18,7 +18,7 @@ services:
 
   clients:
     # Named for local dev, but doesn't get published; not needed for prod
-    image: your-org-clients:latest
+    image: crdt-notes-clients:latest
     build:
       context: ../..
       dockerfile: ./clients/spas/Dockerfile
@@ -32,10 +32,11 @@ services:
     volumes:
       - ../../clients/:/app/clients/
       - ../../saflib/:/app/saflib/
+      - ../../services/notes/notes-sdk/:/app/services/notes/notes-sdk/
     command: npm run dev
 
   identity:
-    image: ghcr.io/your-org/your-org-identity:latest
+    image: crdt-notes-identity:latest
     volumes:
       - ../../saflib/identity/identity-db/data:/app/saflib/identity/identity-db/data
       - ../../saflib/identity/identity-service/data:/app/saflib/identity/identity-service/data
@@ -61,6 +62,28 @@ services:
       - IDENTITY_SERVICE_DISABLE_RATE_LIMITING=${IDENTITY_SERVICE_DISABLE_RATE_LIMITING}
 
       - NODEMAILER_TRANSPORT_CONFIG=${NODEMAILER_TRANSPORT_CONFIG}
+
+  notes:
+    image: crdt-notes-notes:latest
+    # if we ever use notes-db, will need to add a volume here
+    build:
+      context: ../..
+      dockerfile: services/notes/notes-service/Dockerfile
+    environment:
+      - ALLOW_DB_CREATION=${ALLOW_DB_CREATION}
+      - CLIENT_SUBDOMAINS=${CLIENT_SUBDOMAINS}
+      - DEPLOYMENT_NAME=${DEPLOYMENT_NAME}
+      - DOMAIN=${DOMAIN}
+      - MOCK_INTEGRATIONS=${MOCK_INTEGRATIONS}
+      - NODE_ENV=${NODE_ENV}
+      - PROTOCOL=${PROTOCOL}
+      - SERVICE_SUBDOMAINS=${SERVICE_SUBDOMAINS}
+      - TZ=${TZ}
+
+      - IDENTITY_SERVICE_GRPC_PORT=${IDENTITY_SERVICE_GRPC_PORT}
+
+      - NOTES_SERVICE_HOST=${NOTES_SERVICE_HOST}
+      - NOTES_SERVICE_HTTP_PORT=${NOTES_SERVICE_HTTP_PORT}
 
   prometheus:
     image: prom/prometheus:v2.46.0

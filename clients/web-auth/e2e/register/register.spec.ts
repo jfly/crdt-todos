@@ -8,7 +8,8 @@ import {
 } from "@saflib/playwright";
 import { linkToHref } from "@saflib/links";
 import { authLinks } from "@saflib/auth-links";
-import { authAppStrings } from "@your-org/web-auth/strings";
+import { authAppStrings } from "web-auth/strings";
+import { notes_sdk_strings } from "notes-sdk/strings";
 
 test("register", async ({ page }) => {
   await cleanScreenshots();
@@ -28,6 +29,6 @@ test("register", async ({ page }) => {
   ).fill("asdfasdf");
   await attachScreenshot(page);
   await getByString(page, authAppStrings.saflib_register_page.register).click();
-  await getByString(page, "Stub Page").waitFor();
+  await getByString(page, notes_sdk_strings.note_list_page.title).waitFor();
   await attachScreenshot(page);
 });

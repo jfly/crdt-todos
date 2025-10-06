@@ -10,6 +10,7 @@ import { registerUser } from "../../e2e-utils";
 import { authAppStrings } from "@saflib/auth/strings";
 import { linkToHref } from "@saflib/links";
 import { authLinks } from "@saflib/auth-links";
+import { notes_sdk_strings } from "notes-sdk/strings";
 
 test("login doesnt exist", async ({ page }) => {
   await page.goto(linkToHref(authLinks.login));
@@ -37,13 +38,9 @@ test("login", async ({ page }) => {
   await page
     .getByRole("textbox", { name: "Password Password" })
     .fill(testPassword);
-  console.log("login with", {
-    email: testEmail,
-    password: testPassword,
-  });
   await attachScreenshot(page);
   await getByString(page, authAppStrings.saflib_login_page.log_in).click();
-  await getByString(page, "Stub Page").waitFor();
+  await getByString(page, notes_sdk_strings.note_list_page.title).waitFor();
   await attachScreenshot(page, {
     fullPage: false,
   });

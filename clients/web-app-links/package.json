@@ -1,6 +1,6 @@
 {
-  "name": "web-notes-links",
-  "description": "Links for the notes client",
+  "name": "web-app-links",
+  "description": "Links for the web root client",
   "private": true,
   "type": "module",
   "exports": {

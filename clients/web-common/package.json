@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/web-common",
+  "name": "web-common",
   "description": "Shared look-and-feel and utilities for web clients",
   "private": true,
   "type": "module",

@@ -1,3 +1,3 @@
-import { main } from "@your-org/web-root";
+import { main } from "web-root";
 
 main();

@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/web-auth",
+  "name": "web-auth",
   "description": "Sign-up, sign-in, and related pages.",
   "private": true,
   "type": "module",
@@ -20,7 +20,8 @@
     "@saflib/auth": "*",
     "@saflib/links": "*",
     "@saflib/vue": "*",
-    "@your-org/web-common": "*",
-    "@your-org/web-root-links": "*"
+    "web-app-links": "*",
+    "web-common": "*",
+    "web-root-links": "*"
   }
 }

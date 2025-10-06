@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/your-product",
+  "name": "crdt-notes",
   "description": "TODO",
   "type": "module",
   "scripts": {

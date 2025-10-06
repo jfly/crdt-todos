@@ -1,4 +1,4 @@
-FROM your-org-clients:latest AS builder
+FROM crdt-notes-clients:latest AS builder
 
 COPY ./deploy/prod/.env.prod-local /app/.env.prod-local
 RUN export $(grep -v '^#' /app/.env.prod-local | xargs) && npm run build

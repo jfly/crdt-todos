@@ -1,5 +1,5 @@
 {
-  "name": "@your-org/web-root-links",
+  "name": "web-root-links",
   "description": "Links for the web root client",
   "private": true,
   "type": "module",

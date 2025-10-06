@@ -1,7 +1,8 @@
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 import { getUniqueEmail, getByString } from "@saflib/playwright";
-import { authAppStrings } from "@your-org/web-auth/strings";
+import { notes_sdk_strings } from "notes-sdk/strings";
+import { authAppStrings } from "web-auth/strings";
 
 export async function registerUser(
   page: Page,
@@ -26,16 +27,12 @@ export async function registerUser(
   await getByString(page, authAppStrings.saflib_register_page.password).fill(
     "asdfasdf",
   );
-  console.log("register with", {
-    email: userEmail,
-    password: "asdfasdf",
-  });
   await getByString(
     page,
     authAppStrings.saflib_register_page.confirm_password,
   ).fill("asdfasdf");
   await getByString(page, authAppStrings.saflib_register_page.register).click();
-  await getByString(page, "Stub Page").waitFor();
+  await getByString(page, notes_sdk_strings.note_list_page.title).waitFor();
 
   return userEmail;
 }

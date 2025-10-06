@@ -1,5 +1,6 @@
 sudo -i
 echo "Pulling latest docker images..."
-docker pull ghcr.io/your-org/your-org-caddy:latest
-docker pull ghcr.io/your-org/your-org-identity:latest
+docker pull crdt-notes-caddy:latest
+docker pull crdt-notes-identity:latest
+docker pull crdt-notes-notes:latest
 echo "Done!"

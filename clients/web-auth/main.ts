@@ -1,9 +1,9 @@
 import { createVueApp, setClientName } from "@saflib/vue";
 import App from "./AuthApp.vue";
-import { vuetifyConfig } from "@your-org/web-common";
+import { vuetifyConfig } from "web-common";
 import { createAuthRouter } from "./router";
 import { authAppStrings } from "./strings";
-import { webCommonStrings } from "@your-org/web-common/strings";
+import { webCommonStrings } from "web-common/strings";
 
 setClientName("auth");
 
