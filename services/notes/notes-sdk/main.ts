@@ -6,6 +6,7 @@ import { notes_sdk_strings } from "./strings";
 // import { notesServiceFakeHandlers } from "./fakes.ts";
 // import { http, bypass } from "msw";
 import { router } from "./router.ts";
+import "./repo.ts";
 
 export const main = async () => {
   setClientName("root");
