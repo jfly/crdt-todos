@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>{{ t(strings.title) }}</h1>
-    <NoteEditor v-if="docQuery.data.value" v-model="docQuery.data.value" />
+    <NoteEditor :note="docQuery.data" />
   </v-container>
 </template>
 

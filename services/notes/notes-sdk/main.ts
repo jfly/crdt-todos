@@ -2,6 +2,8 @@ import App from "./App.vue";
 import { createVueApp, setClientName } from "@saflib/vue";
 import "@saflib/vue/components";
 import { notes_sdk_strings } from "./strings";
+import "./repo.ts";
+
 // import { setupWorker } from "msw/browser";
 // import { notesServiceFakeHandlers } from "./fakes.ts";
 // import { http, bypass } from "msw";
