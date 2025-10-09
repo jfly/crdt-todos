@@ -1,19 +1,19 @@
 <template>
   <v-card>
     <v-card-title>
-      <h2>{{ note.ref.value?.title || t(strings.title) }}</h2>
+      <h2>{{ note.title || t(strings.title) }}</h2>
     </v-card-title>
 
-    <v-card-subtitle v-if="note.ref.value?.createdAt">
-      Created: {{ note.ref.value?.createdAt }}
+    <v-card-subtitle v-if="note.createdAt">
+      Created: {{ note.createdAt }}
       <br />
-      Updated: {{ note.ref.value?.updatedAt }}
+      Updated: {{ note.updatedAt }}
     </v-card-subtitle>
 
     <v-card-text>
       <v-form>
         <v-textarea
-          :model-value="note.ref.value?.contents"
+          :model-value="note.contents"
           @update:model-value="handleEdit"
           :label="t(strings.contents_label)"
           rows="10"
@@ -36,6 +36,11 @@ const props = defineProps<{
   note: DocRef<Note>;
 }>();
 
+if (!props.note.ref.value) {
+  throw new Error("Note not found");
+}
+
+const note = props.note.ref.value;
 const handleEdit = (value: string) => {
   props.note.change((root) => {
     Automerge.updateText(root, ["contents"], value);
