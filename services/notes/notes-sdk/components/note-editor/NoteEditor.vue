@@ -28,16 +28,16 @@
 <script setup lang="ts">
 import { note_editor_strings as strings } from "./NoteEditor.strings.ts";
 import { useReverseT } from "../../i18n.ts";
-import type { Note, ReactiveAMDoc } from "../../types.ts";
+import type { Note, DocRef } from "../../types.ts";
 import * as Automerge from "@automerge/automerge";
 const { t } = useReverseT();
 
 const props = defineProps<{
-  note: ReactiveAMDoc<Note>;
+  note: DocRef<Note>;
 }>();
 
 const handleEdit = (value: string) => {
-  props.note.handle.change((root) => {
+  props.note.change((root) => {
     Automerge.updateText(root, ["contents"], value);
     root.updatedAt = new Date();
   });

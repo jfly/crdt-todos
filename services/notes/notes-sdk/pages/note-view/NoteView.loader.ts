@@ -2,7 +2,7 @@ import type { LoaderQuery } from "@saflib/vue";
 import { ref, readonly } from "vue";
 import { type AnyDocumentId, type DocHandle } from "@automerge/automerge-repo";
 import { TanstackError } from "@saflib/sdk";
-import type { Note, ReactiveAMDoc } from "../../types.ts";
+import type { Note, DocRef } from "../../types.ts";
 
 export function useNoteViewLoader(noteId: string) {
   let handle: DocHandle<Note>;
@@ -14,12 +14,12 @@ export function useNoteViewLoader(noteId: string) {
   if (handle.isReady()) {
     docRef.value = handle.doc();
   }
-  const docQuery: LoaderQuery<ReactiveAMDoc<Note>> = {
+  const docQuery: LoaderQuery<DocRef<Note>> = {
     isLoading: ref(true),
     error: ref(null),
     isError: ref(false),
     data: {
-      handle,
+      change: (fn) => handle.change(fn),
       ref: readonly(docRef),
     },
   };

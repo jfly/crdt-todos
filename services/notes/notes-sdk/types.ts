@@ -9,8 +9,7 @@ export interface Note {
   updatedAt: Date;
 }
 
-export interface ReactiveAMDoc<T> {
-  handle: DocHandle<T>;
-  // change: DocHandle<T>["change"];
+export interface DocRef<T> {
+  change: DocHandle<T>["change"];
   ref: Ref<T | undefined>;
 }
