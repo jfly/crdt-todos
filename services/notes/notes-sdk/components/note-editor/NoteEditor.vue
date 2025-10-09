@@ -1,10 +1,10 @@
 <template>
   <v-card>
     <v-card-title>
-      <h2>{{ note?.title || t(strings.title) }}</h2>
+      <h2>{{ note.title || t(strings.title) }}</h2>
     </v-card-title>
 
-    <v-card-subtitle v-if="note?.createdAt">
+    <v-card-subtitle v-if="note.createdAt">
       Created: {{ note.createdAt }}
       <br />
       Updated: {{ note.updatedAt }}
@@ -28,14 +28,23 @@
 <script setup lang="ts">
 import { note_editor_strings as strings } from "./NoteEditor.strings.ts";
 import { useReverseT } from "../../i18n.ts";
-import type { Note } from "../../types.ts";
-
+import type { Note, DocRef } from "../../types.ts";
+import * as Automerge from "@automerge/automerge";
 const { t } = useReverseT();
 
-const note = defineModel<Note>({ required: true });
+const props = defineProps<{
+  note: DocRef<Note>;
+}>();
 
+if (!props.note.ref.value) {
+  throw new Error("Note not found");
+}
+
+const note = props.note.ref.value;
 const handleEdit = (value: string) => {
-  note.value.contents = value;
-  note.value.updatedAt = new Date();
+  props.note.change((root) => {
+    Automerge.updateText(root, ["contents"], value);
+    root.updatedAt = new Date();
+  });
 };
 </script>

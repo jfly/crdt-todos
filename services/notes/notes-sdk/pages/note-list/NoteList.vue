@@ -3,8 +3,8 @@
     <h1>{{ t(strings.title) }}</h1>
     <p>{{ t(strings.description) }}</p>
 
-    <router-link :to="`/note/${docQuery.data.value}`">View Note</router-link>
-  </v-container>  
+    <router-link :to="`/note/${docQuery.data}`">View Note</router-link>
+  </v-container>
 </template>
 
 <script setup lang="ts">

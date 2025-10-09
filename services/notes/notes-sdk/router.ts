@@ -5,7 +5,7 @@ import {
 } from "vue-router";
 // import { StubComponent } from "@saflib/vue/components";
 import NoteList from "./pages/note-list/NoteList.vue";
-import NoteView from "./pages/note-view/NoteView.vue";
+import NoteViewAsync from "./pages/note-view/NoteViewAsync.vue";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -14,7 +14,8 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/note/:noteId",
-    component: NoteView,
+    component: NoteViewAsync,
+    props: true,
   },
 ];
 
