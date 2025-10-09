@@ -24,15 +24,16 @@
   "dependencies": {
     "@automerge/automerge": "^3.1.2",
     "@automerge/automerge-repo": "^2.3.1",
+    "@automerge/automerge-repo-network-broadcastchannel": "^2.3.1",
     "@automerge/automerge-repo-storage-indexeddb": "^2.3.1",
     "@saflib/monorepo": "*",
     "@saflib/sdk": "*",
     "@saflib/vite": "*",
     "@saflib/vue": "*",
-    "web-notes-links": "*",
     "msw": "^2.11.3",
     "notes-spec": "*",
-    "vite-plugin-wasm": "^3.5.0"
+    "vite-plugin-wasm": "^3.5.0",
+    "web-notes-links": "*"
   },
   "msw": {
     "workerDirectory": [
