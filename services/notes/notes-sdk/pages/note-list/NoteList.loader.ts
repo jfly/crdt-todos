@@ -18,7 +18,7 @@ export function useNoteListLoader() {
     isLoading: ref(false),
     error: ref(null),
     isError: ref(false),
-    data: ref(firstNoteId),
+    data: firstNoteId,
   };
 
   return { docQuery };
