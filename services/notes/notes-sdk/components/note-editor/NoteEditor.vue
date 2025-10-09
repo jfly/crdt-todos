@@ -1,19 +1,19 @@
 <template>
   <v-card>
     <v-card-title>
-      <h2>{{ noteDoc?.title || t(strings.title) }}</h2>
+      <h2>{{ note.ref.value?.title || t(strings.title) }}</h2>
     </v-card-title>
 
-    <v-card-subtitle v-if="noteDoc?.createdAt">
-      Created: {{ noteDoc.createdAt }}
+    <v-card-subtitle v-if="note.ref.value?.createdAt">
+      Created: {{ note.ref.value?.createdAt }}
       <br />
-      Updated: {{ noteDoc.updatedAt }}
+      Updated: {{ note.ref.value?.updatedAt }}
     </v-card-subtitle>
 
     <v-card-text>
       <v-form>
         <v-textarea
-          :model-value="noteDoc.contents"
+          :model-value="note.ref.value?.contents"
           @update:model-value="handleEdit"
           :label="t(strings.contents_label)"
           rows="10"
@@ -35,7 +35,6 @@ const { t } = useReverseT();
 const props = defineProps<{
   note: ReactiveAMDoc<Note>;
 }>();
-const noteDoc = props.note.handle.doc();
 
 const handleEdit = (value: string) => {
   props.note.handle.change((root) => {

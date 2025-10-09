@@ -1,5 +1,5 @@
 import type { LoaderQuery } from "@saflib/vue";
-import { ref } from "vue";
+import { ref, readonly } from "vue";
 import { type AnyDocumentId, type DocHandle } from "@automerge/automerge-repo";
 import { TanstackError } from "@saflib/sdk";
 import type { Note, ReactiveAMDoc } from "../../types.ts";
@@ -10,14 +10,33 @@ export function useNoteViewLoader(noteId: string) {
     noteId as unknown as AnyDocumentId,
   );
   handle = findWithProgress.handle as DocHandle<Note>;
+  const docRef = ref<Note | undefined>();
+  if (handle.isReady()) {
+    docRef.value = handle.doc();
+  }
   const docQuery: LoaderQuery<ReactiveAMDoc<Note>> = {
     isLoading: ref(true),
     error: ref(null),
     isError: ref(false),
     data: {
       handle,
+      ref: readonly(docRef),
     },
   };
+
+  handle.on("change", ({ doc, patches }) => {
+    if (!docRef.value) {
+      return;
+    }
+    const changedProperties = new Set<keyof Note>();
+    for (const patch of patches) {
+      changedProperties.add(patch.path[0] as keyof Note);
+    }
+    for (const property of changedProperties) {
+      // @ts-expect-error - doc is the new doc
+      docRef.value[property] = doc[property];
+    }
+  });
 
   const state = findWithProgress.state;
   switch (state) {
@@ -30,6 +49,7 @@ export function useNoteViewLoader(noteId: string) {
       docQuery.isLoading.value = false;
       docQuery.isError.value = false;
       docQuery.error.value = null;
+      docRef.value = handle.doc();
       break;
     case "failed":
     case "aborted":

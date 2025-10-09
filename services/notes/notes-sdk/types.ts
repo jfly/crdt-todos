@@ -12,5 +12,5 @@ export interface Note {
 export interface ReactiveAMDoc<T> {
   handle: DocHandle<T>;
   // change: DocHandle<T>["change"];
-  // ref: Ref<T>;
+  ref: Ref<T | undefined>;
 }
