@@ -1,0 +1,7 @@
+version: "0.5"
+
+processes:
+  caddy:
+    command: caddy run --config ./caddy-config/Caddyfile
+  clients:
+    command: cd ../../clients/spas && npm run dev

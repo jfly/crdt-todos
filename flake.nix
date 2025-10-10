@@ -9,6 +9,8 @@
     in pkgs.mkShell {
       packages = [
         pkgs.nodejs
+        pkgs.process-compose
+        pkgs.caddy
       ];
     };
   };

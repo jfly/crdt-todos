@@ -1,15 +1,15 @@
 import common.Caddyfile 
 
 {$PROTOCOL}://{$DOMAIN} {
-	reverse_proxy clients:5173
+	reverse_proxy localhost:5173
 }
 
 {$PROTOCOL}://app.{$DOMAIN} {
-	reverse_proxy clients:5173
+	reverse_proxy localhost:5173
 }
 
 {$PROTOCOL}://auth.{$DOMAIN} {
-	reverse_proxy clients:5173
+	reverse_proxy localhost:5173
 }
 
 {$PROTOCOL}://notes.{$DOMAIN} {
